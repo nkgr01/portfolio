@@ -30,9 +30,12 @@ export default defineConfig(({ mode }) => {
         }
       },
       resolve: {
-        alias: {
-          '@': path.resolve(__dirname, '.'),
-        }
+        alias: [
+          { find: '@', replacement: path.resolve(__dirname, './') },
+          { find: '@src', replacement: path.resolve(__dirname, './src') },
+          { find: '@components', replacement: path.resolve(__dirname, './src/components') },
+          { find: '@utils', replacement: path.resolve(__dirname, './src/utils') }
+        ]
       }
     };
 });

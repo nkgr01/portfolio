@@ -1,13 +1,13 @@
 import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Interests from './components/Interests';
-import About from './components/About';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import AnimatedSection from './components/AnimatedSection';
+import Header from './src/components/Header';
+import Hero from './src/components/Hero';
+import Interests from './src/components/Interests';
+import About from './src/components/About';
+import Projects from './src/components/Projects';
+import Skills from './src/components/Skills';
+import Contact from './src/components/Contact';
+import Footer from './src/components/Footer';
+import AnimatedSection from './src/components/AnimatedSection';
 
 const App: React.FC = () => {
   return (

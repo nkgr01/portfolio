@@ -1,12 +1,7 @@
-/**
- * Composant Hero - Section d'accueil du portfolio
- * Affiche une présentation personnelle avec photo et un appel à l'action
- */
 import React from 'react';
 import { getCloudinaryUrl } from '../utils/cloudinary';
 
 const Hero: React.FC = () => {
-  // Fonction pour faire défiler jusqu'à la section contact
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -38,7 +33,7 @@ const Hero: React.FC = () => {
             <div className="relative w-64 h-64 md:w-80 md:h-80 group">
               <div className="absolute inset-0 bg-green rounded-md transform translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
               <img 
-                src={getCloudinaryUrl('court2_ncur3m.JPG')}
+                src={getCloudinaryUrl('court2_ncur3m.jpg')}
                 alt="Profile" 
                 className="relative w-full h-full object-cover rounded-md z-10 filter grayscale group-hover:grayscale-0 transition-all duration-300"
               />
