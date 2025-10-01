@@ -8,6 +8,7 @@
  */
 
 import React from 'react';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 
 /**
  * Interface définissant la structure d'une compétence
@@ -27,21 +28,21 @@ interface Skill {
  * Les niveaux sont définis sur une échelle de 0 à 100
  */
 const skills: Skill[] = [
-        { name: 'HTML & CSS', level: 98, imageUrl: 'src/image/css.PNG' },
-        { name: 'JavaScript (ES6+)', level: 60, imageUrl: 'src/image/js.PNG' },
-        { name: 'TypeScript', level: 50, imageUrl: 'src/image/ts.PNG' },
-        { name: 'PHP', level: 55, imageUrl: 'src/image/php.PNG' },
-        { name: 'MySQL', level: 70, imageUrl: 'src/image/mysql.PNG' },
-        { name: 'Node.js (MERN)', level: 80, imageUrl: 'src/image/node.PNG' },
-        { name: 'Next.js (notion et base)', level: 45, imageUrl: 'src/image/next.PNG' },
+        { name: 'HTML & CSS', level: 98, imageUrl: getCloudinaryUrl('css_tu3umt') },
+        { name: 'JavaScript (ES6+)', level: 60, imageUrl: getCloudinaryUrl('js_ptillk') },
+        { name: 'TypeScript', level: 50, imageUrl: getCloudinaryUrl('ts_iza9cl') },
+        { name: 'PHP', level: 55, imageUrl: getCloudinaryUrl('php_ajb5sf') },
+        { name: 'MySQL', level: 70, imageUrl: getCloudinaryUrl('mysql_tstemj') },
+        { name: 'Node.js (MERN)', level: 80, imageUrl: getCloudinaryUrl('node_rnrcpn') },
+        { name: 'Next.js (notion et base)', level: 45, imageUrl: getCloudinaryUrl('next_y9oaw0') },
     
-        { name: 'React', level: 95, imageUrl: 'src/image/react.PNG' },
-        { name: 'Tailwind CSS', level: 92, imageUrl: 'src/image/tailwind.png' },
-        { name: 'CMS (Wordpress)', level: 75, imageUrl: 'src/image/wordpress.PNG' },
+        { name: 'React', level: 95, imageUrl: getCloudinaryUrl('react_fbkagi') },
+        { name: 'Tailwind CSS', level: 92, imageUrl: getCloudinaryUrl('tailwind_upsplv') },
+        { name: 'CMS (Wordpress)', level: 75, imageUrl: getCloudinaryUrl('wordpress_pqq0lr') },
     
     
-        { name: 'Git & GitHub', level: 90, imageUrl: 'src/image/git.PNG' },
-        { name: 'Figma (Notion et base)', level: 60, imageUrl: 'src/image/figma.PNG' }
+        { name: 'Git & GitHub', level: 90, imageUrl: getCloudinaryUrl('git_nnsztz') },
+        { name: 'Figma (Notion et base)', level: 60, imageUrl: getCloudinaryUrl('figma_znuajd') }
     ];
 
 /**
@@ -53,6 +54,7 @@ const Skills: React.FC = () => {
     return (
         // Section principale avec espacement vertical
         <section id="skills" className="py-24">
+            
             {/* Titre de section avec numérotation et ligne décorative */}
             <h2 className="text-3xl font-bold text-lightest-slate mb-8 flex items-center">
                 <span className="text-green font-mono mr-4">04.</span>
