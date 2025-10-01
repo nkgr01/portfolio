@@ -50,19 +50,19 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-24 text-center">
-      <h2 className="text-2xl text-green font-mono mb-2">04. Contactez-moi</h2>
+     
       <h3 className="text-5xl font-bold text-green mb-4">04. Contactez-moi</h3>
       <p className="max-w-xl mx-auto text-slate mb-12">
         Je suis actuellement ouvert à de nouvelles opportunités et ma boîte mail est toujours disponible. Que vous ayez une question ou que vous souhaitiez simplement dire bonjour, je ferai de mon mieux pour vous répondre !
       </p>
             <form ref={form} onSubmit={handleSubmit} className="max-w-lg mx-auto text-left">
           <div className="mb-4">
-              <label htmlFor="Nom" className="block text-light-slate mb-2">Nom</label>
+              <label htmlFor="nom" className="block text-light-slate mb-2">Nom</label>
               <input 
                   type="text" 
-                  id="Nom" 
-                  name="Nom" 
-                  value={formData.Nom}
+                  id="nom" 
+                  name="nom" 
+                  value={formData.nom}
                   onChange={handleChange}
                   required
                   className="w-full px-3 py-2 bg-light-navy border border-lightest-navy rounded focus:outline-none focus:border-green text-lightest-slate"
