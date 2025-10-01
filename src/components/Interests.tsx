@@ -99,7 +99,7 @@ const Interests: React.FC = () => {
                 <li
                   key={index}
                  
-                  ref={(el) => { itemRefs.current[index] = el; }}
+                  ref={(el: HTMLLIElement | null) => { itemRefs.current[index] = el; }}
                   data-index={index}
                   className="pl-10 pb-16 relative"
                 >

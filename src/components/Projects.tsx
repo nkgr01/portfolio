@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { Project } from '../types';
+import type { Project } from 'src/types';
 
 const GitHubIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
@@ -83,7 +83,9 @@ const Projects: React.FC = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <div key={index}>
+            <ProjectCard project={project} />
+          </div>
         ))}
       </div>
     </section>
