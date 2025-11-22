@@ -27,17 +27,39 @@ const Contact: React.FC = () => {
 
     try {
       if (form.current) {
-        const result = await emailjs.sendForm(
+        // Paramètres pour l'email reçu par vous
+        const templateParamsToYou = {
+          user_name: formData.nom,
+          user_email: formData.email,
+          message: formData.message,
+          date: new Date().toLocaleString('fr-FR')
+        };
+
+        // Paramètres pour l'email de confirmation envoyé au visiteur
+        const templateParamsToVisitor = {
+          visitor_name: formData.nom,
+          visitor_email: formData.email,
+          confirmation_message: `Merci ${formData.nom} pour votre message ! J'ai bien reçu votre demande et je vous recontacterai dès que possible. À bientôt !`
+        };
+
+        // Envoyer l'email à vous
+        await emailjs.send(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-          form.current,
+          templateParamsToYou,
           import.meta.env.VITE_EMAILJS_PUBLIC_KEY
         );
 
-        if (result.text === 'OK') {
-          alert('Message envoyé avec succès !');
-          setFormData({ nom: '', email: '', message: '' });
-        }
+        // Envoyer l'email de confirmation au visiteur
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_CONFIRMATION_ID,
+          templateParamsToVisitor,
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+
+        alert('Message envoyé avec succès ! Vous recevrez un email de confirmation.');
+        setFormData({ nom: '', email: '', message: '' });
       }
     } catch (error) {
       alert('Erreur lors de l\'envoi du message. Veuillez réessayer.');
