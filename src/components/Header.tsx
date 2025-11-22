@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         <div 
           onClick={() => scrollToSection('hero')}
           className="text-green text-2xl font-bold font-mono cursor-pointer hover:text-green/80 transition-colors">
-          <u>Mon profil</u>
+          Mon profil
         </div>
         <nav className="hidden md:flex items-center space-x-6">
           {navLinks.map((link, index) => (

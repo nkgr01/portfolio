@@ -23,7 +23,7 @@ const About: React.FC = () => {
               <div className="absolute inset-0 bg-green rounded-md transform translate-x-4 translate-y-4 transition-transform duration-300 group-hover:translate-x-3 group-hover:translate-y-3"></div>
               <img 
                 src={getCloudinaryUrl('vert_od5vlg.JPG')}
-                alt="John" 
+                alt="#" 
                 className="relative w-full h-full object-cover rounded-md z-10 filter grayscale group-hover:grayscale-0 transition-all duration-300"
               />
             </div>

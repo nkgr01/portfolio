@@ -1,17 +1,18 @@
 
 import React from 'react';
 import type { Project } from 'src/types';
+import { getCloudinaryUrl } from '../utils/cloudinary';
 
 const GitHubIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <title>GitHub</title>
+      <title>Github</title>
       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
     </svg>
 );
 
 const ExternalLinkIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
-      <title>External Link</title>
+      <title>Live url</title>
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line>
     </svg>
 );
@@ -19,30 +20,34 @@ const ExternalLinkIcon = () => (
 
 const projects: Project[] = [
   {
-    title: 'E-commerce Platform',
-    description: 'A full-featured e-commerce platform with a modern design, product management, user authentication, and a Stripe payment integration.',
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind'],
-    imageUrl: 'https://picsum.photos/seed/project1/400/300',
-    liveUrl: '#',
+    title: 'Journal numérique',
+    description:' L’info en un éclair, vue sous tous les angles. Actualité fiable, analyse profonde, instantanéité garantie. Du local au global, une vision à 360° du monde qui bouge. Parce que comprendre, c’est pouvoir agir. Mise à jour quotidienne',
+    tags: ['Wordpress', 'Elementor'],
+    imageUrl: getCloudinaryUrl('20_Top_WordPress_Newspaper_Themes_2025_jugstp'),
+    liveUrl: 'https://dupoclic.com/info/',
     sourceUrl: '#',
   },
+
+   {
+    title: 'Audify',
+    description: 'Audify vous offre une plateforme simple, rapide et conviviale pour partager vos enregistrements vocaux avec le monde entier. Exprimez-vous sans limites.',
+    tags: ['PHP 7+', 'MySQL avec PDO', 'HTML5', 'CSS3', 'Bootstrap 5', 'JavaScript (Fetch API)'],
+    imageUrl: getCloudinaryUrl('Capture_d_écran_108_qbktvq'),
+    liveUrl: 'https://sp-p6.com/audify/index.php',
+    sourceUrl: '#',
+  },
+
   {
-    title: 'Project Management Tool',
-    description: 'A collaborative project management tool that helps teams organize tasks, track progress, and communicate effectively. Features include Kanban boards and real-time updates.',
-    tags: ['Next.js', 'TypeScript', 'Firebase', 'GraphQL'],
-    imageUrl: 'https://picsum.photos/seed/project2/400/300',
+    title: 'Chatroom (en maintenance)',
+    description: ' Ce projet vise à développer une plateforme de tchatche conviviale et organisée, permettant aux utilisateurs de se connecter avec d’autres personnes partageant des intentions similaires.',
+    tags: ['Node.js', 'MongoDB', 'Prisma', 'Express'],
+    imageUrl: getCloudinaryUrl('Calendar_schedule_ji97vc'),
     liveUrl: '#',
     sourceUrl: '#',
   },
-  {
-    title: 'AI-Powered Content Generator',
-    description: 'A web application that leverages the Gemini API to generate creative content such as blog posts, social media captions, and marketing copy based on user prompts.',
-    tags: ['React', 'Gemini API', 'Node.js', 'Tailwind CSS'],
-    imageUrl: 'https://picsum.photos/seed/project3/400/300',
-    liveUrl: '#',
-    sourceUrl: '#',
-  },
+ 
 ];
+
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
