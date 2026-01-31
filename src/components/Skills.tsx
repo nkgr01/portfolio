@@ -32,16 +32,16 @@ const skills: Skill[] = [
         { name: 'JavaScript (ES6+)', level: 60, imageUrl: getCloudinaryUrl('js_ptillk') },
         { name: 'TypeScript', level: 50, imageUrl: getCloudinaryUrl('ts_iza9cl') },
         { name: 'PHP', level: 55, imageUrl: getCloudinaryUrl('php_ajb5sf') },
-        { name: 'MySQL', level: 70, imageUrl: getCloudinaryUrl('mysql_tstemj') },
-        { name: 'Node.js (MERN)', level: 80, imageUrl: getCloudinaryUrl('node_rnrcpn') },
+        { name: 'MySQL', level: 50, imageUrl: getCloudinaryUrl('mysql_tstemj') },
+        { name: 'Node.js (MERN)', level: 60, imageUrl: getCloudinaryUrl('node_rnrcpn') },
         { name: 'Next.js (notion et base)', level: 45, imageUrl: getCloudinaryUrl('next_y9oaw0') },
     
         { name: 'React', level: 95, imageUrl: getCloudinaryUrl('react_fbkagi') },
-        { name: 'Tailwind CSS', level: 92, imageUrl: getCloudinaryUrl('tailwind_upsplv') },
+        { name: 'Tailwind CSS', level: 80, imageUrl: getCloudinaryUrl('tailwind_upsplv') },
         { name: 'CMS (Wordpress)', level: 75, imageUrl: getCloudinaryUrl('wordpress_pqq0lr') },
     
     
-        { name: 'Git & GitHub', level: 90, imageUrl: getCloudinaryUrl('git_nnsztz') },
+        { name: 'Git & GitHub', level: 80, imageUrl: getCloudinaryUrl('git_nnsztz') },
         { name: 'Figma (Notion et base)', level: 60, imageUrl: getCloudinaryUrl('figma_znuajd') }
     ];
 
