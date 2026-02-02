@@ -8,12 +8,15 @@ import Skills from './src/components/Skills';
 import Contact from './src/components/Contact';
 import Footer from './src/components/Footer';
 import AnimatedSection from './src/components/AnimatedSection';
+import AnimatedBackground from './src/components/AnimatedBackground';
 
 const App: React.FC = () => {
   return (
-    <div className="bg-navy text-light-slate font-sans">
-      <Header />
-      <main className="container mx-auto px-6 md:px-12 lg:px-24">
+    <div className="bg-navy text-light-slate font-sans relative">
+      <AnimatedBackground />
+      <div className="relative z-0">
+        <Header />
+        <main className="container mx-auto px-6 md:px-12 lg:px-24">
         <Hero />
         <AnimatedSection>
           <About />
@@ -32,6 +35,7 @@ const App: React.FC = () => {
         </AnimatedSection>
       </main>
       <Footer />
+      </div>
     </div>
   );
 };

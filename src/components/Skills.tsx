@@ -56,7 +56,7 @@ const Skills: React.FC = () => {
             
             {/* Titre de section avec numérotation et ligne décorative */}
             <h2 className="text-3xl font-bold text-lightest-slate mb-8 flex items-center">
-                <span className="text-green font-mono mr-4">04.</span>
+                <span className="text-green font-mono mr-4">03.</span>
                 My Skills
                 <span className="h-px bg-lightest-navy w-32 md:w-64 ml-6"></span>
             </h2>

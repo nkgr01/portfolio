@@ -27,7 +27,7 @@ const Contact: React.FC = () => {
 
     try {
       if (form.current) {
-        // Paramètres pour l'email reçu par vous
+        // Paramètres pour l'email reçu par moi
         const templateParamsToYou = {
           user_name: formData.nom,
           user_email: formData.email,
@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
           confirmation_message: `Merci ${formData.nom} pour votre message ! J'ai bien reçu votre demande et je vous recontacterai dès que possible. À bientôt !`
         };
 
-        // Envoyer l'email à vous
+        // Envoyer l'email à moi-même
         await emailjs.send(
           import.meta.env.VITE_EMAILJS_SERVICE_ID,
           import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -73,7 +73,11 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 text-center">
      
-      <h3 className="text-5xl font-bold text-green mb-4">04. Contactez-moi</h3>
+      <h2 className="text-3xl font-bold text-lightest-slate mb-8 flex items-center justify-center">
+        <span className="text-green font-mono mr-4">04.</span>
+         Contactez-moi
+        <span className="h-px bg-lightest-navy w-32 md:w-64 ml-6"></span>
+      </h2> 
       <p className="max-w-xl mx-auto text-slate mb-12">
         Je suis actuellement ouvert à de nouvelles opportunités et ma boîte mail est toujours disponible. Que vous ayez une question ou que vous souhaitiez simplement dire bonjour, je ferai de mon mieux pour vous répondre !
       </p>
