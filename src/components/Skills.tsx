@@ -36,7 +36,7 @@ const skills: Skill[] = [
         { name: 'Node.js (MERN)', level: 60, imageUrl: getCloudinaryUrl('node_rnrcpn') },
         { name: 'Next.js (notion et base)', level: 45, imageUrl: getCloudinaryUrl('next_y9oaw0') },
     
-        { name: 'React', level: 95, imageUrl: getCloudinaryUrl('react_fbkagi') },
+        { name: 'React', level: 9, imageUrl: getCloudinaryUrl('react_fbkagi') },
         { name: 'Tailwind CSS', level: 80, imageUrl: getCloudinaryUrl('tailwind_upsplv') },
         { name: 'CMS (Wordpress)', level: 75, imageUrl: getCloudinaryUrl('wordpress_pqq0lr') },
     
