@@ -33,7 +33,7 @@ const projects: Project[] = [
     description: 'Audify vous offre une plateforme simple, rapide et conviviale pour partager vos enregistrements vocaux avec le monde entier. Exprimez-vous sans limites.',
     tags: ['PHP 7+', 'MySQL avec PDO', 'HTML5', 'CSS3', 'Bootstrap 5', 'JavaScript (Fetch API)'],
     imageUrl: getCloudinaryUrl('Capture_d_écran_108_qbktvq'),
-    liveUrl: 'https://sp-p6.com/audify/index.php',
+    liveUrl: 'https://dupoclic.com/Audify/',
     sourceUrl: '#',
   },
 

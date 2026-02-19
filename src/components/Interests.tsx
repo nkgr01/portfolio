@@ -22,6 +22,10 @@ const interestsData = [
   {
     title: 'Rigueur dans le travail',
     description: 'Je travaille avec méthode et sérieux, en veillant à produire des résultats fiables et de qualité.'
+  },
+  {
+    title: 'Veille technologie continue',
+    description: 'Je suis passionné par l\'apprentissage continu des nouvelles technologies et tendances du secteur. Je m\'efforce de rester à jour avec les dernières innovations, frameworks et outils pour améliorer constamment mes compétences et anticiper les évolutions du marché digital.'
   }
 ];
 

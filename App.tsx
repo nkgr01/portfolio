@@ -4,6 +4,7 @@ import Hero from './src/components/Hero';
 import Interests from './src/components/Interests';
 import About from './src/components/About';
 import Projects from './src/components/Projects';
+import MobileApps from './src/components/MobileApps';
 import Skills from './src/components/Skills';
 import Contact from './src/components/Contact';
 import Footer from './src/components/Footer';
@@ -26,6 +27,9 @@ const App: React.FC = () => {
         </AnimatedSection>
         <AnimatedSection>
           <Projects />
+        </AnimatedSection>
+        <AnimatedSection>
+          <MobileApps />
         </AnimatedSection>
         <AnimatedSection>
           <Skills />
