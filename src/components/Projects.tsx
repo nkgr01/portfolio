@@ -45,6 +45,15 @@ const projects: Project[] = [
     liveUrl: '#',
     sourceUrl: '#',
   },
+
+  {
+    title: 'StreamingPlatform',
+    description: 'Plateforme de streaming moderne développée avec Next.js 15 et React 19. Application complète permettant la recherche en temps réel de films et séries, pages détail avec casting intégré et bandes-annonces. Interface responsive optimisée avec Tailwind CSS, déployée en production sur Vercel, utilisant l\'API gratuite TMDB.',
+    tags: ['Next.js', 'React', 'Tailwind CSS', 'API REST', 'Vercel'],
+    imageUrl: getCloudinaryUrl('Capture_qrzjsa'),
+    liveUrl: 'https://streaming-platform-chi-puce.vercel.app/',
+    sourceUrl: 'https://github.com/nkgr01/streaming-platform',
+  },
  
 ];
 
