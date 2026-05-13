@@ -1,115 +1,93 @@
 /**
- * Composant AnimatedBackground - Fond animé avec particules Three.js
- * Crée une scène 3D avec un nuage de particules qui tourne continuellement
+ * AnimatedBackground - Fond animé avec étoiles scintillantes et particules flottantes
+ * Utilise Canvas pour le rendu des étoiles et des effets visuels de fond
  */
-
 import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+
+interface Star {
+  x: number;
+  y: number;
+  size: number;
+  opacity: number;
+  speed: number;
+  twinkleSpeed: number;
+  twinkleOffset: number;
+}
 
 const AnimatedBackground: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
-  const sceneRef = useRef<THREE.Scene | null>(null);
-  const particlesRef = useRef<THREE.Points | null>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const animFrameRef = useRef<number>(0);
+  const starsRef = useRef<Star[]>([]);
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-    // 🎯 Récupère le canvas HTML sur lequel Three.js va dessiner
-    const canvas = document.createElement('canvas');
-    containerRef.current.appendChild(canvas);
-
-    // 🌌 Crée une scène 3D vide (c'est l'environnement principal)
-    const scene = new THREE.Scene();
-    sceneRef.current = scene;
-
-    // 🎥 Crée une caméra en perspective : (champ de vision, ratio largeur/hauteur, plan proche, plan lointain)
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      1,
-      1000
-    );
-    // 🧭 Positionne la caméra sur l'axe Z pour avoir une vue globale de la scène
-    camera.position.z = 100;
-
-    // 🖼️ Crée le moteur de rendu WebGL, en le liant au canvas + fond transparent (alpha: true)
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
-    rendererRef.current = renderer;
-    // 📐 Définit la taille du rendu = taille de la fenêtre
-    renderer.setSize(window.innerWidth, window.innerHeight);
-
-    // 📏 Met à jour la taille du canvas et les propriétés de la caméra si l'utilisateur redimensionne la fenêtre
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-    window.addEventListener('resize', handleResize);
-
-    // 🔺 Crée une géométrie pour les particules (vide au début)
-    const geometry = new THREE.BufferGeometry();
-    // 📦 Tableau pour stocker les coordonnées des particules
-    const vertices = [];
-    // 🎯 Nombre total de particules
-    const numParticles = 800;
-
-    // 🔁 Génère des coordonnées (x, y, z) aléatoires pour chaque particule
-    for (let i = 0; i < numParticles; i++) {
-      vertices.push((Math.random() - 0.5) * 400); // x
-      vertices.push((Math.random() - 0.5) * 400); // y
-      vertices.push((Math.random() - 0.5) * 400); // z
-    }
-
-    // 🎯 Attribue les positions à la géométrie sous forme de tableau optimisé (Float32)
-    geometry.setAttribute(
-      'position',
-      new THREE.Float32BufferAttribute(vertices, 3)
-    );
-
-    // 🎨 Définit le style des particules : couleur et taille RÉDUITE
-    const material = new THREE.PointsMaterial({ color: 0x00d4ff, size: 1.5 });
-
-    // 🧩 Combine la géométrie et le matériau pour créer un nuage de particules
-    const particles = new THREE.Points(geometry, material);
-    particlesRef.current = particles;
-    // ➕ Ajoute ce nuage à la scène
-    scene.add(particles);
-
-    // 🔁 Fonction d'animation appelée à chaque frame (~60 fois par seconde)
-    let animationId: number;
-    const animate = () => {
-      animationId = requestAnimationFrame(animate);
-
-      // 🌪️ Fait tourner le nuage de particules sur X et Y lentement
-      particles.rotation.x += 0.0005;
-      particles.rotation.y += 0.001;
-
-      // 🖌️ Dessine la scène depuis le point de vue de la caméra
-      renderer.render(scene, camera);
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = document.documentElement.scrollHeight;
+      initStars();
     };
 
-    // ▶️ Lance l'animation en continu
-    animate();
+    const initStars = () => {
+      const count = Math.floor((canvas.width * canvas.height) / 8000);
+      starsRef.current = Array.from({ length: Math.min(count, 200) }, () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        size: Math.random() * 1.8 + 0.3,
+        opacity: Math.random() * 0.6 + 0.1,
+        speed: Math.random() * 0.4 + 0.05,
+        twinkleSpeed: Math.random() * 0.02 + 0.005,
+        twinkleOffset: Math.random() * Math.PI * 2,
+      }));
+    };
 
-    // Cleanup
+    resize();
+    window.addEventListener('resize', resize);
+
+    let t = 0;
+    const draw = () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Gradient overlay
+      const grad = ctx.createRadialGradient(
+        canvas.width / 2, 0, 0,
+        canvas.width / 2, canvas.height * 0.5, canvas.height * 0.7
+      );
+      grad.addColorStop(0, 'rgba(20, 24, 40, 0.3)');
+      grad.addColorStop(1, 'rgba(13, 15, 20, 0)');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Draw stars
+      starsRef.current.forEach((star) => {
+        const twinkle = Math.sin(t * star.twinkleSpeed + star.twinkleOffset);
+        const currentOpacity = star.opacity * (0.5 + 0.5 * twinkle);
+        ctx.beginPath();
+        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
+        ctx.fill();
+      });
+
+      t++;
+      animFrameRef.current = requestAnimationFrame(draw);
+    };
+
+    draw();
+
     return () => {
-      window.removeEventListener('resize', handleResize);
-      cancelAnimationFrame(animationId);
-      if (containerRef.current && canvas) {
-        containerRef.current.removeChild(canvas);
-      }
-      geometry.dispose();
-      material.dispose();
-      renderer.dispose();
+      cancelAnimationFrame(animFrameRef.current);
+      window.removeEventListener('resize', resize);
     };
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="fixed top-0 left-0 w-full h-screen pointer-events-none z-10"
-      style={{ backgroundColor: 'transparent' }}
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 0, opacity: 0.7 }}
     />
   );
 };

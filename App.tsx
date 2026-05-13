@@ -1,44 +1,32 @@
 import React from 'react';
 import Header from './src/components/Header';
 import Hero from './src/components/Hero';
-import Interests from './src/components/Interests';
 import About from './src/components/About';
-import Projects from './src/components/Projects';
-import MobileApps from './src/components/MobileApps';
+import Services from './src/components/Services';
 import Skills from './src/components/Skills';
+import Projects from './src/components/Projects';
 import Contact from './src/components/Contact';
 import Footer from './src/components/Footer';
-import AnimatedSection from './src/components/AnimatedSection';
 import AnimatedBackground from './src/components/AnimatedBackground';
 
 const App: React.FC = () => {
   return (
-    <div className="bg-navy text-light-slate font-sans relative">
+    <div style={{ background: '#0d0f14', color: '#f1f5f9', fontFamily: 'Inter, sans-serif', position: 'relative', overflowX: 'hidden', minHeight: '100vh' }}>
+      {/* Fond étoilé */}
       <AnimatedBackground />
-      <div className="relative z-0">
+
+      {/* Contenu principal */}
+      <div style={{ position: 'relative', zIndex: 1 }}>
         <Header />
-        <main className="container mx-auto px-6 md:px-12 lg:px-24">
-        <Hero />
-        <AnimatedSection>
+        <main>
+          <Hero />
           <About />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Interests />
-        </AnimatedSection>
-        <AnimatedSection>
-          <Projects />
-        </AnimatedSection>
-        <AnimatedSection>
-          <MobileApps />
-        </AnimatedSection>
-        <AnimatedSection>
+          <Services />
           <Skills />
-        </AnimatedSection>
-        <AnimatedSection>
+          <Projects />
           <Contact />
-        </AnimatedSection>
-      </main>
-      <Footer />
+        </main>
+        <Footer />
       </div>
     </div>
   );

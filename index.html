@@ -1,23 +1,37 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr" class="dark">
   <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QD2CS21BGE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QD2CS21BGE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-QD2CS21BGE');
+    </script>
 
-  gtag('config', 'G-QD2CS21BGE');
-</script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rodrigue_Portfolio</title>
-     <link rel="icon" href="https://res.cloudinary.com/djql83wss/image/upload/v1759353205/icon_keot9o.png"/>
+    <title>Rodrigue N'GUESSAN — Développeur Web &amp; Mobile</title>
+    <meta name="description" content="Portfolio de N'GUESSAN Kouamé Guy Rodrigue, développeur web et mobile junior. Création d'applications web et mobiles modernes avec React, Next.js, Flutter et plus." />
+    <meta name="author" content="Rodrigue N'GUESSAN" />
+    <meta name="keywords" content="développeur web, développeur mobile, full-stack, React, Next.js, Flutter, Côte d'Ivoire, portfolio" />
+    <meta property="og:title" content="Rodrigue N'GUESSAN — Développeur Web &amp; Mobile" />
+    <meta property="og:description" content="Création d'applications web et mobiles modernes, performantes et élégantes." />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" href="https://res.cloudinary.com/djql83wss/image/upload/v1759353205/icon_keot9o.png" />
+
+    <!-- Google Fonts: Space Grotesk + Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
@@ -27,21 +41,325 @@
               'slate': '#8892b0',
               'light-slate': '#a8b2d1',
               'lightest-slate': '#ccd6f6',
-              'white': '#e6f1ff',
               'green': '#64ffda',
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-                mono: ['SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', 'monospace'],
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              display: ['"Space Grotesk"', 'Inter', 'sans-serif'],
+              mono: ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
             },
           },
         },
       }
     </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script type="importmap">
+
+    <style>
+      :root {
+        --bg-primary: #0d0f14;
+        --bg-secondary: #131620;
+        --bg-card: #1a1d27;
+        --bg-card-hover: #1f2335;
+        --border-subtle: rgba(255,255,255,0.07);
+        --accent-green: #4ade80;
+        --accent-blue: #60a5fa;
+        --accent-pink: #e879f9;
+        --accent-orange: #fb923c;
+        --text-primary: #f1f5f9;
+        --text-secondary: #94a3b8;
+        --text-muted: #64748b;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: 'Space Grotesk', 'Inter', sans-serif;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-18px); }
+      }
+      @keyframes floatRev {
+        0%, 100% { transform: translateY(-10px); }
+        50% { transform: translateY(10px); }
+      }
+      @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes slideInRight {
+        from { opacity: 0; transform: translateX(30px); }
+        to { opacity: 1; transform: translateX(0); }
+      }
+      @keyframes glowPulse {
+        0%, 100% { box-shadow: 0 0 8px rgba(74,222,128,0.3); }
+        50% { box-shadow: 0 0 28px rgba(74,222,128,0.7), 0 0 56px rgba(74,222,128,0.25); }
+      }
+      @keyframes shimmer {
+        0% { background-position: -200% center; }
+        100% { background-position: 200% center; }
+      }
+      @keyframes twinkle {
+        0%, 100% { opacity: 0.15; }
+        50% { opacity: 1; }
+      }
+      @keyframes spin-slow {
+        to { transform: rotate(360deg); }
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+
+      .animate-float { animation: float 6s ease-in-out infinite; }
+      .animate-float-slow { animation: float 9s ease-in-out infinite; }
+      .animate-float-fast { animation: float 4s ease-in-out infinite; }
+      .animate-float-rev { animation: floatRev 7s ease-in-out infinite; }
+      .animate-fade-in-up { animation: fadeInUp 0.7s ease-out forwards; }
+      .animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+      .animate-slide-in-right { animation: slideInRight 0.5s ease-out forwards; }
+      .animate-glow-pulse { animation: glowPulse 2.5s ease-in-out infinite; }
+      .animate-shimmer { animation: shimmer 2.5s linear infinite; }
+      .animate-spin-slow { animation: spin-slow 20s linear infinite; }
+
+      .section-label {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-green);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .section-label::before {
+        content: '';
+        display: block;
+        width: 32px;
+        height: 1.5px;
+        background: var(--accent-green);
+        border-radius: 2px;
+      }
+
+      .glass-card {
+        background: rgba(26, 29, 39, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 16px;
+      }
+
+      .shimmer-text {
+        background: linear-gradient(90deg, var(--text-primary) 0%, var(--accent-green) 50%, var(--text-primary) 100%);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s linear infinite;
+      }
+
+      .nav-pill {
+        background: rgba(255,255,255,0.08);
+        border-radius: 9999px;
+        padding: 6px 16px;
+        transition: all 0.3s ease;
+      }
+
+      .service-item {
+        cursor: pointer;
+        border-radius: 12px;
+        padding: 14px 16px;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+      }
+      .service-item:hover {
+        background: rgba(255,255,255,0.04);
+        border-color: rgba(255,255,255,0.08);
+      }
+      .service-item.active {
+        background: rgba(26, 29, 39, 0.9);
+        border-color: rgba(255,255,255,0.1);
+      }
+
+      .skill-card {
+        background: rgba(26, 29, 39, 0.7);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 16px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        cursor: default;
+      }
+      .skill-card:hover {
+        background: rgba(26, 29, 39, 0.95);
+        border-color: rgba(255,255,255,0.15);
+        transform: translateY(-4px);
+      }
+
+      .project-card {
+        background: var(--bg-card);
+        border: 1px solid rgba(255,255,255,0.07);
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.35s ease;
+      }
+      .project-card:hover {
+        border-color: rgba(74, 222, 128, 0.3);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--accent-green);
+        color: #0d0f14;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 14px 28px;
+        border-radius: 9999px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border: none;
+        text-decoration: none;
+      }
+      .btn-primary:hover {
+        background: #86efac;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(74,222,128,0.35);
+      }
+
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255,255,255,0.06);
+        color: var(--text-primary);
+        font-weight: 500;
+        font-size: 0.875rem;
+        padding: 14px 28px;
+        border-radius: 9999px;
+        border: 1px solid rgba(255,255,255,0.12);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn-secondary:hover {
+        background: rgba(255,255,255,0.1);
+        border-color: rgba(255,255,255,0.2);
+        transform: translateY(-2px);
+      }
+
+      .skill-tab {
+        padding: 8px 20px;
+        border-radius: 9999px;
+        font-size: 0.85rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.25s ease;
+        border: 1px solid rgba(255,255,255,0.08);
+        background: transparent;
+        color: var(--text-secondary);
+      }
+      .skill-tab.active {
+        background: rgba(74, 222, 128, 0.12);
+        border-color: rgba(74, 222, 128, 0.3);
+        color: var(--accent-green);
+      }
+
+      .floating-tag {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 14px;
+        border-radius: 9999px;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.78rem;
+        color: rgba(255,255,255,0.6);
+        backdrop-filter: blur(8px);
+        white-space: nowrap;
+      }
+      .floating-tag::before {
+        content: '+';
+        color: rgba(74,222,128,0.7);
+        font-weight: 600;
+      }
+
+      .availability-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 18px;
+        border-radius: 9999px;
+        background: rgba(74, 222, 128, 0.08);
+        border: 1px solid rgba(74, 222, 128, 0.2);
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.75);
+      }
+      .availability-badge .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent-green);
+        animation: glowPulse 2s ease-in-out infinite;
+        box-shadow: 0 0 8px rgba(74,222,128,0.7);
+      }
+
+      .contact-input {
+        width: 100%;
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: var(--text-primary);
+        font-size: 0.9rem;
+        transition: all 0.25s ease;
+        outline: none;
+        font-family: 'Inter', sans-serif;
+      }
+      .contact-input:focus {
+        border-color: rgba(74,222,128,0.4);
+        background: rgba(74,222,128,0.04);
+        box-shadow: 0 0 0 3px rgba(74,222,128,0.08);
+      }
+      .contact-input::placeholder {
+        color: var(--text-muted);
+      }
+
+      .section-enter {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.7s ease, transform 0.7s ease;
+      }
+      .section-enter.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 5px; }
+      ::-webkit-scrollbar-track { background: var(--bg-primary); }
+      ::-webkit-scrollbar-thumb { background: rgba(74,222,128,0.2); border-radius: 10px; }
+      ::-webkit-scrollbar-thumb:hover { background: rgba(74,222,128,0.4); }
+    </style>
+
+    <script type="importmap">
 {
   "imports": {
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
@@ -49,10 +367,10 @@
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/"
   }
 }
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body class="bg-navy">
+    </script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body class="bg-[#0d0f14]">
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>
   </body>
