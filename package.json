@@ -14,16 +14,22 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
-    "aos": "^2.3.4",
+    "@react-three/drei": "^9.99.0",
+    "@react-three/fiber": "^8.15.12",
+    "@studio-freight/lenis": "^1.0.42",
+    "clsx": "^2.1.0",
+    "framer-motion": "^10.18.0",
+    "gsap": "^3.12.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "^0.128.0"
+    "tailwind-merge": "^2.2.0",
+    "three": "^0.160.0"
   },
   "devDependencies": {
     "@types/node": "^20.8.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@types/three": "^0.128.0",
+    "@types/three": "^0.160.0",
     "@vitejs/plugin-react": "^4.0.3",
     "autoprefixer": "^10.4.15",
     "postcss": "^8.4.28",

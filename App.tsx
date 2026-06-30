@@ -1,22 +1,21 @@
-import React from 'react';
-import Header from './src/components/Header';
-import Hero from './src/components/Hero';
-import About from './src/components/About';
-import Services from './src/components/Services';
-import Skills from './src/components/Skills';
-import Projects from './src/components/Projects';
-import Contact from './src/components/Contact';
-import Footer from './src/components/Footer';
-import AnimatedBackground from './src/components/AnimatedBackground';
+import { Scene } from './src/components/3d/Scene';
+import Header from './src/components/sections/Header';
+import Hero from './src/components/sections/Hero';
+import About from './src/components/sections/About';
+import Services from './src/components/sections/Services';
+import Skills from './src/components/sections/Skills';
+import Projects from './src/components/sections/Projects';
+import Contact from './src/components/sections/Contact';
+import Footer from './src/components/sections/Footer';
+import { useLenis } from './src/hooks/useLenis';
 
-const App: React.FC = () => {
+const App = () => {
+  useLenis();
+
   return (
-    <div style={{ background: '#0d0f14', color: '#f1f5f9', fontFamily: 'Inter, sans-serif', position: 'relative', overflowX: 'hidden', minHeight: '100vh' }}>
-      {/* Fond étoilé */}
-      <AnimatedBackground />
-
-      {/* Contenu principal */}
-      <div style={{ position: 'relative', zIndex: 1 }}>
+    <div className="bg-[#0d0f14] text-white font-sans relative overflow-x-hidden min-h-screen">
+      <Scene />
+      <div className="relative z-10">
         <Header />
         <main>
           <Hero />
