@@ -152,6 +152,3 @@ export default function Contact({ theme }: ContactProps) {
     </section>
   );
 }
-
-
-export default Contact
