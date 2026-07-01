@@ -2,21 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Light mode (default) */
 :root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.14);
+  --accent-green: #16a34a;
+  --accent-green-light: #4ade80;
+  --scrollbar-bg: #e2e8f0;
+  --scrollbar-thumb: rgba(22, 163, 74, 0.3);
+  --scrollbar-thumb-hover: rgba(22, 163, 74, 0.5);
+}
+
+/* Dark mode */
+.dark {
   --bg-primary: #0d0f14;
-  --accent-green: #4ade80;
+  --bg-secondary: #131620;
+  --bg-card: #1a1d27;
   --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border: rgba(255, 255, 255, 0.07);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --accent-green: #4ade80;
+  --accent-green-light: #86efac;
+  --scrollbar-bg: #0d0f14;
+  --scrollbar-thumb: rgba(74, 222, 128, 0.2);
+  --scrollbar-thumb-hover: rgba(74, 222, 128, 0.4);
 }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { background-color: var(--bg-primary); color: var(--text-primary); font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 h1, h2, h3, h4 { font-family: 'Space Grotesk', 'Inter', sans-serif; }
-::selection { background-color: rgba(74, 222, 128, 0.3); color: white; }
+
+::selection {
+  background-color: rgba(74, 222, 128, 0.3);
+  color: var(--text-primary);
+}
+
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--bg-primary); }
-::-webkit-scrollbar-thumb { background: rgba(74, 222, 128, 0.2); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(74, 222, 128, 0.4); }
+::-webkit-scrollbar-track { background: var(--scrollbar-bg); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--scrollbar-thumb-hover); }
 
 html.lenis { height: auto; }
 .lenis.lenis-smooth { scroll-behavior: auto; }
