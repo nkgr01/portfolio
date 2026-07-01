@@ -8,24 +8,26 @@ import Projects from './src/components/sections/Projects';
 import Contact from './src/components/sections/Contact';
 import Footer from './src/components/sections/Footer';
 import { useLenis } from './src/hooks/useLenis';
+import { useTheme } from './src/hooks/useTheme';
 
 const App = () => {
   useLenis();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className="bg-[#0d0f14] text-white font-sans relative overflow-x-hidden min-h-screen">
-      <Scene />
+    <div className="relative overflow-x-hidden min-h-screen" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
+      <Scene theme={theme} />
       <div className="relative z-10">
-        <Header />
+        <Header theme={theme} toggleTheme={toggleTheme} />
         <main>
-          <Hero />
-          <About />
-          <Services />
-          <Skills />
-          <Projects />
-          <Contact />
+          <Hero theme={theme} />
+          <About theme={theme} />
+          <Services theme={theme} />
+          <Skills theme={theme} />
+          <Projects theme={theme} />
+          <Contact theme={theme} />
         </main>
-        <Footer />
+        <Footer theme={theme} />
       </div>
     </div>
   );

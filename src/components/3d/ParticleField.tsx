@@ -1,13 +1,16 @@
 import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import type { Theme } from '../../hooks/useTheme';
 
 interface ParticleFieldProps {
   count?: number;
+  theme?: Theme;
 }
 
-export function ParticleField({ count = 100 }: ParticleFieldProps) {
+export function ParticleField({ count = 100, theme = 'dark' }: ParticleFieldProps) {
   const points = useRef<THREE.Points>(null);
+  const isDark = theme === 'dark';
 
   const particles = useMemo(() => {
     const positions = new Float32Array(count * 3);
@@ -31,7 +34,13 @@ export function ParticleField({ count = 100 }: ParticleFieldProps) {
       <bufferGeometry>
         <bufferAttribute attach="attributes-position" count={count} array={particles} itemSize={3} />
       </bufferGeometry>
-      <pointsMaterial size={0.05} color="#60a5fa" transparent opacity={0.4} sizeAttenuation />
+      <pointsMaterial
+        size={0.05}
+        color={isDark ? '#60a5fa' : '#0ea5e9'}
+        transparent
+        opacity={isDark ? 0.4 : 0.2}
+        sizeAttenuation
+      />
     </points>
   );
 }
