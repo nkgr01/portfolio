@@ -7,9 +7,10 @@ interface FloatingGeometryProps {
   position: [number, number, number];
   color?: string;
   size?: number;
+  opacity?: number;
 }
 
-export function FloatingGeometry({ position, color = '#4ade80', size = 1 }: FloatingGeometryProps) {
+export function FloatingGeometry({ position, color = '#4ade80', size = 1, opacity = 0.3 }: FloatingGeometryProps) {
   const mesh = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -23,7 +24,7 @@ export function FloatingGeometry({ position, color = '#4ade80', size = 1 }: Floa
     <Float speed={2} rotationIntensity={1} floatIntensity={2}>
       <mesh ref={mesh} position={position} scale={size}>
         <icosahedronGeometry args={[1, 4]} />
-        <MeshDistortMaterial color={color} transparent opacity={0.3} distort={0.4} speed={2} roughness={0.1} />
+        <MeshDistortMaterial color={color} transparent opacity={opacity} distort={0.4} speed={2} roughness={0.1} />
       </mesh>
     </Float>
   );
